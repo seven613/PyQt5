@@ -17,5 +17,9 @@ headers = {
     }
 
 response = requests.request("POST", url, data=payload, headers=headers)
-
 print(response.text)
+msg = response.json()
+if msg['code'] != 0:
+    print(msg['message'])
+else:
+    print(msg['result'])
