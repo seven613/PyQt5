@@ -8,6 +8,7 @@ PyQt5 教程
 
 by 张强 2019.9.26
 """
+__author__ =''
 import sys
 from PyQt5.QtWidgets import QMainWindow,QAction,QMenu,QApplication
 

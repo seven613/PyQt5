@@ -7,10 +7,11 @@ PyQt5 教程
 
 by 张强 2019.10.1
 """
-import sys
+import sys,os
 from PyQt5.QtWidgets import QMainWindow,QApplication,QAction,qApp
 from PyQt5.QtGui import QIcon
 
+print(os.getcwd())
 class Example(QMainWindow):
 
     def __init__(self):
@@ -19,8 +20,11 @@ class Example(QMainWindow):
         self.initUI()
 
     def initUI(self):
+        if sys.platform =='win32':
+            exitAct = QAction(QIcon('exit.png'), '&Exit', self)
+        else:
+            exitAct = QAction(QIcon('/Users/zhangqiang/PycharmProjects/PyQt5/菜单和工具栏/exit.png'),'&Exit',self)
 
-        exitAct = QAction(QIcon('/Users/zhangqiang/PycharmProjects/PyQt5/菜单和工具栏/exit.png'),'&Exit',self)
         exitAct.setShortcut('Ctrl+Q')
         exitAct.setStatusTip('Exit application')
         exitAct.triggered.connect(qApp.quit)
