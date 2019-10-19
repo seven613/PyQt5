@@ -6,7 +6,7 @@ from PyQt5.Qt import *
 import sys
 
 app = QApplication(sys.argv)
-
+qApp
 window = QWidget()
 window.setWindowTitle("社会我顺哥，人很话不多")
 window.resize(500,500)
@@ -19,3 +19,4 @@ label.move(200,50)
 window.show()
 
 sys.exit(app.exec_())
+
