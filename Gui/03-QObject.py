@@ -184,13 +184,38 @@ class Window(QWidget):
         # self.obj.setObjectName('xxoo')  # 改变对象名称，但是没有执行槽函数，因为已经断开连接了
 
     def QObject类型判定(self):
-        obj = QObject()
-        w = QWidget()
-        btn = QPushButton()
-        label =QLabel()
-        objs =[obj,w,btn,label]
-        for o in objs:
-            print(o.isWidgetType())
+        # *********************API*****************开始
+        # obj = QObject()
+        # w = QWidget()
+        # btn = QPushButton()
+        # label =QLabel()
+        # objs =[obj,w,btn,label]
+        # for o in objs:
+        #     print(o.isWidgetType())
+        # *********************API*****************结束
+        # *********************案例*****************开始
+        label1  = QLabel(self)
+        label1.setText("第一个标签")
+        label1.move(100,100)
+
+        label2 = QLabel(self)
+        label2.setText("第一个标签")
+        label2.move(100,150)
+
+        btn = QPushButton(self)
+        btn.setText("点我")
+        btn.move(100,200)
+        for widget in self.children():#循环self的所有子控件
+            print(widget)
+            if widget.inherits("QLabel"):#判定widget这个控件是否是继承自QLabel
+                print("是")
+                widget.setStyleSheet('background-color:cyan')
+
+        # for obj in [label1,label2,btn]:
+        #     obj.setStyleSheet('background-color:cyan')
+
+        # *********************案例*****************结束
+        
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
