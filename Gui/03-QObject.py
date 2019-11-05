@@ -22,7 +22,8 @@ class Window(QWidget):
         #self.QOject对象名称和属性的操作()
         #self.QObject对象的父子关系操作()
         #self.QObject信号的操作()
-        self.QObject类型判定()
+        #self.QObject类型判定()
+        self.QObject对象删除()
 
 
     def QObject继承结构测试(self):
@@ -215,7 +216,22 @@ class Window(QWidget):
         #     obj.setStyleSheet('background-color:cyan')
 
         # *********************案例*****************结束
-        
+
+    def QObject对象删除(self):
+        obj1 = QObject()
+        self.obj1 =obj1
+        obj2 = QObject()
+        obj3 = QObject()
+
+        obj2.setParent(obj1)
+        obj3.setParent(obj2)
+
+        obj1.destroyed.connect(lambda: print('obj1被释放了'))
+        obj2.destroyed.connect(lambda: print('obj2被释放了'))
+        obj3.destroyed.connect(lambda: print('obj3被释放了'))
+
+        #del obj2
+        obj2.deleteLater()
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
