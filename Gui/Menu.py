@@ -2,8 +2,12 @@
 """..."""
 __author__ = '张强'
 
+
+
 from PyQt5.Qt import *  # 主要包含了我们常用的一些类，汇总到了一块
 
+
+PYQT_VERSION
 class Window(QWidget):
     def __init__(self):
         super().__init__()

@@ -5,7 +5,6 @@ __author__ = '张强'
 
 #0.导入需要的包和模块
 import sys
-
 from PyQt5.Qt import * #主要包含了我们常用的一些类，汇总到了一块
 
 #代码执行方式 右击执行；命令行python 代码名称
@@ -18,7 +17,15 @@ app = QApplication(sys.argv)
 window = QWidget()
 #2.2设置控件
 window.setWindowTitle("sdlfajslflajflad")
+
+label =QLabel(window)#增加label，并把它放到window控件上，组成了父子关系
+label.setText("sdssss")#设置label标题
+label.setWindowTitle("Label")#不起做了，因为label已经有了父控件window
+label.show()#不起作用，因为window已经展示了。一般情况，父控件展示所有子控件
 #2.3展示控件
+
+
+
 window.show()
 
 

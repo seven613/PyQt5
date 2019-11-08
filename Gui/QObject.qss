@@ -1,14 +1,58 @@
 QLabel#notice{
-    font-size:20px;
-    color:red;
-    border:1px solid gray;
-    border-radius:8px;
+    font-size: 20px;
+    color:gray;
+    border: 1px solid gray;
+    border-radius: 8px;
 }
+
 QLabel#notice[notice_level="normal"]{
-    color:green;
-    border-color:green;
+    color: green;
+    border-color: green;
 }
+
 QLabel#notice[notice_level="warning"]{
-    color:yellow;
-    border-color:yellow;
+    color: yellow;
+    border-color: yellow;
+}
+QLabel#notice[notice_level="error"]{
+    color: red;
+    border-color: red;
+}
+
+QPushButton {
+    color:red;
+    background-color:rgb(30,75,10);
+    border-style:outset;
+    border-width:2px;
+    border-color:rgb(10,45,110);
+    border-radius:10px;
+
+    font:bold 14px;
+
+
+    min-width:100px;
+
+
+    min-height:20px;
+
+
+    padding:4px;
+}
+
+
+QPushButton#pushButton:pressed {
+
+    background-color:rgb(40,85,20);
+
+
+    border-style:inset;
+
+
+        padding-left:6px;
+    padding-top:6px;
+}
+
+
+QPushButton:flat {
+    border:2px solid red;
 }
