@@ -56,6 +56,12 @@ class Window(QWidget):
     def keyReleaseEvent(self, QKeyEvent):
         print("键盘上某个按键被释放")
 
+    def focusInEvent(self, QFocusEvent):
+        print("焦点获取了")
+    def focusOutEvent(self, QFocusEvent):
+        print("失去焦点了")
+    def
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
