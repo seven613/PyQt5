@@ -60,7 +60,7 @@ class Window(QWidget):
         print("焦点获取了")
     def focusOutEvent(self, QFocusEvent):
         print("失去焦点了")
-    def
+
 
 
 if __name__ == '__main__':
