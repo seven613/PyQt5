@@ -10,24 +10,24 @@ Introduction:
 import sys
 from PyQt5.Qt import *
 
+
 class Window(QWidget):
     def __init__(self):
         super(Window, self).__init__()
         self.setWindowTitle("QObject的学习")
-        self.resize(500,500)
+        self.resize(500, 500)
         self.setui()
 
     def setui(self):
-        #self.QObject继承结构测试()
-        #self.QOject对象名称和属性的操作()
-        #self.QObject对象的父子关系操作()
-        #self.QObject信号的操作()
-        #self.QObject类型判定()
+        # self.QObject继承结构测试()
+        # self.QOject对象名称和属性的操作()
+        # self.QObject对象的父子关系操作()
+        # self.QObject信号的操作()
+        # self.QObject类型判定()
         self.QObject对象删除()
 
-
     def QObject继承结构测试(self):
-        #QObject.__subclasses__()
+        # QObject.__subclasses__()
         mros = QObject.mro()
         for mro in mros:
             print(mro)
@@ -47,38 +47,35 @@ class Window(QWidget):
         # ************************测试API******************结束
 
         # ************************案例演示******************开始
-        with open('QObject.css','r') as f:
+        with open('QObject.css', 'r') as f:
             qApp.setStyleSheet(f.read())
 
         label = QLabel(self)
         label.setText("第一个label标签")
-        label.move(100,0)
+        label.move(100, 0)
         label.setObjectName('notice')
-        label.setProperty('notice_level','normal')
-
+        label.setProperty('notice_level', 'normal')
 
         label2 = QLabel(self)
-        label2.move(100,100)
+        label2.move(100, 100)
         label2.setText("第二个label标签")
         label2.setObjectName('notice')
-        label2.setProperty('notice_level','warning')
+        label2.setProperty('notice_level', 'warning')
 
         label3 = QLabel(self)
         label3.setText('第三个label标签')
-        label3.move(100,200)
+        label3.move(100, 200)
         label3.setObjectName('notice')
-        label3.setProperty('notice_level','error')
-
-
+        label3.setProperty('notice_level', 'error')
 
         btn = QPushButton(self)
         btn.setText("提交")
-        btn.move(300,300)
+        btn.move(300, 300)
 
         # ************************案例演示******************结束
 
     def QObject对象的父子关系操作(self):
-        #***************测试API*****************开始
+        # ***************测试API*****************开始
         # obj1 = QObject()
         # obj2 = QObject()
         # print("obj1",obj1)
@@ -119,9 +116,9 @@ class Window(QWidget):
 
         obj2.setParent(obj1)
 
-        #监听obj2对象被释放
+        # 监听obj2对象被释放
 
-        obj2.destroyed.connect(lambda :print('obj2对象被释放了'))
+        obj2.destroyed.connect(lambda: print('obj2对象被释放了'))
 
         # ***************内存管理机制*****************开始
 
@@ -143,25 +140,28 @@ class Window(QWidget):
 
         win1.show()
         win2.show()
+
     def QObject信号的操作(self):
-        #**************信号与槽案例*****************开始
+        # **************信号与槽案例*****************开始
         btn = QPushButton(self)
         btn.setText("点我")
-        btn.move(100,100)
+        btn.move(100, 100)
+
         def cao():
             print("点我干涉吗")
+
         btn.clicked.connect(cao)
 
         def windotitlecao(name):
-            print('窗口标题改变了','撩开'+name)
+            print('窗口标题改变了', '撩开' + name)
             self.blockSignals(True)
-            self.setWindowTitle('撩开'+name)
+            self.setWindowTitle('撩开' + name)
             self.blockSignals(False)
 
         self.windowTitleChanged.connect(windotitlecao)
         # **************信号与槽案例*****************结束
 
-        #self.obj = QObject()
+        # self.obj = QObject()
         # def destroy_cao(obj):
         #     print("对象被释放了",obj)
         #
@@ -195,20 +195,20 @@ class Window(QWidget):
         #     print(o.isWidgetType())
         # *********************API*****************结束
         # *********************案例*****************开始
-        label1  = QLabel(self)
+        label1 = QLabel(self)
         label1.setText("第一个标签")
-        label1.move(100,100)
+        label1.move(100, 100)
 
         label2 = QLabel(self)
         label2.setText("第一个标签")
-        label2.move(100,150)
+        label2.move(100, 150)
 
         btn = QPushButton(self)
         btn.setText("点我")
-        btn.move(100,200)
-        for widget in self.children():#循环self的所有子控件
+        btn.move(100, 200)
+        for widget in self.children():  # 循环self的所有子控件
             print(widget)
-            if widget.inherits("QLabel"):#判定widget这个控件是否是继承自QLabel
+            if widget.inherits("QLabel"):  # 判定widget这个控件是否是继承自QLabel
                 print("是")
                 widget.setStyleSheet('background-color:cyan')
 
@@ -219,7 +219,7 @@ class Window(QWidget):
 
     def QObject对象删除(self):
         obj1 = QObject()
-        self.obj1 =obj1
+        self.obj1 = obj1
         obj2 = QObject()
         obj3 = QObject()
 
@@ -230,8 +230,9 @@ class Window(QWidget):
         obj2.destroyed.connect(lambda: print('obj2被释放了'))
         obj3.destroyed.connect(lambda: print('obj3被释放了'))
 
-        #del obj2
+        # del obj2
         obj2.deleteLater()
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
