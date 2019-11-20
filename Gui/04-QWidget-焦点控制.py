@@ -9,8 +9,17 @@ IDE: PyCharm
 import sys
 from PyQt5.Qt import *
 import qdarkgraystyle
+
+class Window(QWidget):
+    def mousePressEvent(self, QMouseEvent):
+        # print(self.focusWidget())
+        self.focusNextChild()#下一个
+        self.focusPreviousChild()#上一个
+        self.focusNextPrevChild(True)#True：下一个;False 上一个
+
+
 app = QApplication(sys.argv)
-window = QWidget()
+window = Window()
 window.setWindowTitle("焦点控制")
 window.resize(500,500)
 
@@ -23,7 +32,12 @@ lineEdit2.move(50,100)
 lineEdit3 = QLineEdit(window)
 lineEdit3.move(50,150)
 
-lineEdit3.setFocus()
+QWidget.setTabOrder(lineEdit,lineEdit3)
+QWidget.setTabOrder(lineEdit3,lineEdit2)
+#lineEdit3.setFocus()
+
+#获取当前窗口内部所有子控件当中获得焦点的控件
+#print(window.focusWidget())
 
 window.setStyleSheet(qdarkgraystyle.load_stylesheet())
 window.show()
