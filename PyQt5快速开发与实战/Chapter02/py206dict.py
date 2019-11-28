@@ -24,6 +24,10 @@
 ●radiansdict.has_key(key)：如果键在字典中，则返回true；否则返回false。
 ●radiansdict.items()：以列表形式返回可遍历的(键,值)元组数组。
 ●radiansdict.key()以列表形式返回一个字典中所有的键。
+●radiansdict.setdefault(key,default=None)：和get()类似，但如果键已经不存在于字典中，则将添加键并将值设为default。
+●radiansdict.update(dict2)：把dict2的键值对更新到字典中。
+●radiansdict.values()：以列表形式返回字典中所有的值。
+
 
 '''
 # 1
